@@ -7,7 +7,7 @@ namespace Nos3
     extern ItcLogger::Logger *sim_logger;
 
     SubsimHardwareModel::SubsimHardwareModel(const boost::property_tree::ptree& config) : SimIHardwareModel(config), 
-    _enabled(SUBSIM_SIM_ERROR), _count(0), _config(0), _status(0)
+    _enabled(SUBSIM_SIM_SUCCESS), _count(0), _config(0), _status(0)
     {
         /* Get the NOS engine connection string */
         std::string connection_string = config.get("common.nos-connection-string", "tcp://127.0.0.1:12001"); 
@@ -20,8 +20,8 @@ namespace Nos3
 
         /* Get on a protocol bus */
         /* Note: Initialized defaults in case value not found in config file */
-        std::string bus_name = "usart_29";
-        int node_port = 29;
+        std::string bus_name = "usart_28";
+        int node_port = 28;
         if (config.get_child_optional("simulator.hardware-model.connections")) 
         {
             /* Loop through the connections for hardware model */
